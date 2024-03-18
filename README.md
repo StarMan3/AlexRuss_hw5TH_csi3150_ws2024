@@ -47,4 +47,101 @@ The three main components here are the HTML, CSS, and JavaScript files. If the f
 </head>
 ```
 
-- 
+- The first div element contains the start button for the quiz.
+```html
+<!-- Quiz START Button -->
+    <div class="start_btn"><button>Start Quiz</button></div>
+```
+
+- Instruction Box Wrapper, contains the pop up box that displays the quiz rules, and the button to begin the quiz.
+```html
+<!-- Instruction box wrapper -->
+<div class="info_box">
+    <div class="info-title"><span>Some Rules of this Quiz</span></div>
+    <div class="info-list">
+        <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+        <div class="info">2. Once you select your answer, it can't be undone.</div>
+        <div class="info">3. You can't select any option once time goes off.</div>
+        <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+        <div class="info">5. You'll get points on the basis of your correct answers.</div>
+    </div>
+    <div class="buttons">
+        <button class="quit">Exit Quiz</button>
+        <button class="restart">Continue</button>
+    </div>
+</div>
+```
+
+- QuizBox includes 3 sections:
+    - Header, contains the title, timer, and progress bar
+    - Main Section, with the quiz questions. (Taken from `./js/questions.js`)
+    - Footer, with the Question number and Next Question button.
+```html
+<!-- Quiz Box -->
+<div class="quiz_box">
+    <header>
+        <div class="title">Demo Quiz App in JavaScript</div>
+        <div class="timer">
+            <div class="time_left_txt">Time Left</div>
+            <div class="timer_sec">15</div>
+        </div>
+        <div class="time_line"></div>
+    </header>
+    <section>
+        <div class="que_text">
+            <!-- Insert questions from ./js/questions.js -->
+        </div>
+        <div class="option_list">
+            <!-- Insert options to questions from ./js/questions.js -->
+        </div>
+    </section>
+
+    <!-- footer of Quiz Box -->
+    <footer>
+        <div class="total_que">
+            <!-- insert Question Count Number dynamically from JavaScript App logic -->
+        </div>
+        <button class="next_btn">Next Que</button>
+    </footer>
+</div>
+```
+
+- Last section of the HTML file is the result box. This section displays the user's score and a button to restart the quiz or exit.
+```html
+<!-- Result Box -->
+<div class="result_box">
+    <div class="icon">
+        <i class="fas fa-crown"></i>
+    </div>
+    <div class="complete_text">You've completed the Quiz!</div>
+    <div class="score_text">
+        <!-- insert dynamic user score as Result from JavaScript -->
+    </div>
+    <div class="buttons">
+        <button class="restart">Replay Quiz</button>
+        <button class="quit">Quit Quiz</button>
+    </div>
+</div>
+```
+
+### style.css
+The CSS file contains the styling for the entire application. The file is broken down into sections for the landing page, the quiz box, the result box, and the instruction box. Some notable additions in the file may be as follows:
+- Importing a font from Google Fonts
+```css
+/* importing google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+```
+
+- The following code is used to change the font color and background when the user selects text on the page.
+```css
+::selection {
+  color: #fff;
+  background: #a020f0;
+}
+```
+
+
+### questions.js
+This file is for creating an array of objects that contain the quiz questions and answers. To add more questions, you can add more objects to the array. Each object should contain the question, the options, and the answer.
+
+### quizApp.js
